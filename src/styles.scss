@@ -1,0 +1,64 @@
+$primary: #3292a6;
+$success: #28a745;
+
+body {
+  // background: $primary;
+  /* color: #fff; */
+}
+
+#cereals {
+  img {
+    margin-top: -40px;
+  }
+  .card:hover {
+    background-color: $success;
+    color: #fff;
+  }
+
+  // .card {
+  //   padding-right: 0px;
+  //   padding-bottom: 15px;
+  //   border: none;
+  // }
+
+  // .card-body {
+  //   border: 1px solid rgba(0, 0, 0, 0.125);
+  // }
+
+  // Para poner espacios
+  //.card-body:hover {
+  //   background-color: $success;
+  //   color: #fff;
+  // }
+
+  // .card {
+  //   padding-right: 0px;
+  //   padding-bottom: 15px;
+  //   border: none;
+  // }
+
+  // .card-body {
+  //   border: 1px solid rgba(0, 0, 0, 0.125);
+  // }
+
+  .fab {
+    color: #fff;
+  }
+}
+
+@media (max-width: 768px) {
+  #productsView {
+    margin-top: 5px;
+  }
+  #accordionCol {
+    margin-top: 5px;
+  }
+
+  .mb-resp {
+    margin-bottom: 1rem;
+  }
+  /* For mobile phones: */
+  //   [class*='col-'] {
+  //     width: 100%;
+  //   }
+}

@@ -1,0 +1,175 @@
+<div class="row m-2">
+  <div id="accordionCol" class="col-sm-5 col-md-4 col-lg-3">
+    <!-- ACCORDION -->
+    <div id="accordion">
+      <div class="card">
+        <div class="card-header">
+          <h5>
+            <a
+              href="#collapse1"
+              class="text-success"
+              data-parent="#accordion"
+              data-toggle="collapse"
+            >
+              Alimentación
+            </a>
+          </h5>
+        </div>
+
+        <div id="collapse1" class="collapse">
+          <div class="card-body">
+            <ul>
+              <li>Cereales</li>
+              <li>Bebidas</li>
+              <li>Fruta y verdura</li>
+              <li>Yogures</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h5>
+            <a
+              href="#collapse2"
+              data-parent="#accordion"
+              data-toggle="collapse"
+              class="text-success"
+            >
+              Dietética
+            </a>
+          </h5>
+        </div>
+
+        <div id="collapse2" class="collapse">
+          <div class="card-body">
+            <ul>
+              <li>Tipo 1</li>
+              <li>Tipo 2</li>
+              <li>Tipo 3</li>
+              <li>Tipo 4</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h5>
+            <a
+              href="#collapse3"
+              data-parent="#accordion"
+              data-toggle="collapse"
+              class="text-success"
+            >
+              Belleza
+            </a>
+          </h5>
+        </div>
+
+        <div id="collapse3" class="collapse">
+          <div class="card-body">
+            <ul>
+              <li>Tipo 1</li>
+              <li>Tipo 2</li>
+              <li>Tipo 3</li>
+              <li>Tipo 4</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FIN ACORDEON -->
+  </div>
+  <div
+    id="productsView"
+    class="col-sm-7 col-md-8 col-lg-9"
+    style="border:1px solid #333"
+  >
+    <!--
+      <div id="cereals" class="card-columns">
+        <div class="card" id="x" *ngFor="let heroe of heroes; let i = index">
+          <div class="card-body">
+            <img class="card-img-top" [src]="heroe.img" [alt]="heroe.nombre" />
+            <h5 class="card-title">{{ heroe.nombre }}</h5>
+            <p class="card-text">{{ heroe.bio }}</p>
+            <p class="card-text">
+              <small class="text-muted">{{ heroe.aparicion }}</small>
+            </p>
+            <button
+              (click)="verHeroe(i)"
+              type="button"
+              class="btn  btn-outline-primary btn-block"
+            >
+              Ver más
+            </button>
+
+
+              <a
+                  [routerLink]="['/heroe', i]"
+                  routerLinkActive="router-link-active"
+                  class="btn btn-outline-primary btn-block"
+                >
+                  Ver más link...</a
+
+              >
+
+          </div>
+        </div>
+      </div>
+    -->
+
+    <!-- PRODUCTS -->
+
+    <section id="cereals" class="my-5 text-center">
+      <div class="container">
+        <div class="row">
+          <div
+            class="card col-lg-3 col-md-6"
+            *ngFor="let product of products; let i = index"
+          >
+            <div class="card-body">
+              <img
+                src="assets/img/cereales2.jpg"
+                alt=""
+                class="img-fluid rounded-circle w-100 mb-3"
+              />
+              <h3>Muesli</h3>
+              <h5 class="text-muted">Lead Writer</h5>
+              <hr />
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
+                commodi nostrum, ab libero voluptas officia.
+              </p>
+              <button
+                (click)="verProduct(i)"
+                type="button"
+                class="btn  btn-outline-primary btn-block"
+              >
+                Ver más
+              </button>
+              <div class="d-flex justify-content-center">
+                <div class="p-4">
+                  <a href="http://facebook.com">
+                    <i class="fab fa-facebook"></i>
+                  </a>
+                </div>
+                <div class="p-4">
+                  <a href="http://twitter.com">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </div>
+                <div class="p-4">
+                  <a href="http://instagram.com">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

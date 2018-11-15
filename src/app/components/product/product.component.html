@@ -1,0 +1,26 @@
+<h1 class="row animated fadeIn">
+  {{ product.nombre }} <small>{{ product.aparicion }}</small>
+</h1>
+<hr />
+
+<div class="row animated fadeIn fast">
+  <div class="col-md-4">
+    <img [src]="product.img" class="img-fluid" [alt]="product.nombre" />
+    <br /><br />
+    <a [routerLink]="['/home']" class="btn btn-outline-danger btn-block"
+      >Volver a products...</a
+    >
+  </div>
+
+  <div class="col-md-8">
+    <h3>{{ product.nombre }}</h3>
+    <hr />
+    <p>{{ product.bio }}</p>
+    <div *ngIf="product.casa === 'DC'">
+      <img class="img-logo" src="assets/img/dc.png" alt="" />
+    </div>
+    <div *ngIf="product.casa === 'Marvel'">
+      <img class="img-logo" src="assets/img/marvel.png" alt="" />
+    </div>
+  </div>
+</div>
