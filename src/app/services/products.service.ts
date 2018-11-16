@@ -62,13 +62,13 @@ export class ProductsService {
   /**
    * getProducts
    */
-   public getProductsOld(): Product[] {
-     return this.products;
-   }
+  // public getProductsOld(): Product[] {
+  //   return this.products;
+  // }
 
   public getProducts(endpoint: String) {
     // return this.products;
-    return this.http.get(endpoint + 'products');
+    return this.http.get('http://localhost:8080/product');
   }
 
   public getProduct(idx: string): string {

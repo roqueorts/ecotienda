@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  products: Product[] = [];
+  products; // :  Product[] = [];
   endpoint: String;
 
   // Se ejecuta antes de renderizar
@@ -21,17 +21,20 @@ export class ProductsComponent implements OnInit {
 
   // Se ejecuta cuando la página está ya renderizada
   ngOnInit() {
-    this._ConfigService.getConfig().subscribe((data: String) => {
-      console.log('La url es ' + data['defaultUrl']);
+    // console.log(comp.endpoint);
+    this._ConfigService.getConfig().subscribe(data => {
+      console.log('La url es aaa ' + data['defaultUrl']);
       this.endpoint = data['defaultUrl'];
     });
-    // this._productsService
-    //   .getProducts(this.endpoint)
-    //   .subscribe((data: Product[]) => {
-    //     this.products = data['Products'];
-    //   });
-    this.products = this._productsService.getProductsOld();
-    console.log(this.products);
+    console.log('La url es dfdf  ' + this.endpoint);
+    this._productsService
+      .getProducts(this.endpoint)
+      .subscribe((data: Product[]) => {
+        console.log('Data es: ' + data);
+        this.products = data;
+      });
+    //  //this.products = this._productsService.getProductsOld();
+    // console.log(this.products);
   }
   verProduct(idx: number) {
     this.router.navigate(['/product', idx]);
