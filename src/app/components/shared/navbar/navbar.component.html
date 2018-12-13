@@ -1,83 +1,31 @@
 <!-- NAV BAR -->
-<nav
-  class="navbar navbar-expand-md bg-light navbar-light px-0 mx-2"
-  id="main-nav"
->
-  <a href="index.html" class="navbar-brand text-success">Ecotienda</a>
-  <button
-    class="navbar-toggler border-success mb-1"
-    data-toggle="collapse"
-    data-target="#navbarCollapse"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<nav class="navbar navbar-expand-md bg-light navbar-light px-0 mx-2" id="main-nav">
+  <a [routerLink]="['home']" class="navbar-brand text-success">Ecotienda</a>
+  <button class="navbar-toggler border-success mb-1" data-toggle="collapse" data-target="#navbarCollapse"><span class="navbar-toggler-icon"></span></button>
   <div class="input-group">
-    <input
-      class="form-control  border-success "
-      type="text"
-      placeholder="Buscar productos"
-    />
-    <div class="input-group-append">
-      <button class="btn btn-outline-success" type="button">Buscar</button>
-    </div>
+    <input class="form-control  border-success" type="text" placeholder="Buscar productos" (keyup.enter)="buscarProducto(buscarTexto.value)" #buscarTexto />
+    <div class="input-group-append"><button class="btn btn-outline-success" (click)="buscarProducto(buscarTexto.value)" type="button">Buscar</button></div>
   </div>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav ml-auto">
+      <li class="nav-item" routerLinkActive="active"><a class="nav-link text-success" [routerLink]="['register']">Registrarse</a></li>
+      <li class="nav-item"><a class="nav-link text-success" href="#contacto">Contacto</a></li>
       <li class="nav-item">
-        <a class="nav-link text-success" href="#">Registrarse</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-success" href="#contacto">Contacto</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link btn d-inline-block text-success" href="#"
-          ><i class="fas fa-user"></i> Mi cuenta
-        </a>
+        <a class="nav-link btn d-inline-block text-success" href="#"><i class="fas fa-user"></i> Mi cuenta </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link  text-success btn d-inline-block" href="#">
-          <i class="fas fa-shopping-cart"></i> Mi carrito
-        </a>
+        <a class="nav-link  text-success btn d-inline-block" href="#"> <i class="fas fa-shopping-cart"></i> Mi carrito </a>
       </li>
     </ul>
   </div>
 </nav>
 
 <ul class="nav nav-fill nav-pills bg-light">
-  <li class="nav-item m-2">
-    <a
-      class="nav-link btn btn-outline-success btn-lg p-4"
-      role="button"
-      href="#"
-      >Alimentación</a
-    >
-  </li>
-  <li class="nav-item m-2">
-    <a
-      class="nav-link btn btn-outline-success btn-lg p-4"
-      role="button"
-      href="#"
-      >Dietética</a
-    >
-  </li>
-  <li class="nav-item m-2">
-    <a
-      class="nav-link btn btn-outline-success btn-lg p-4"
-      role="button"
-      href="#"
-      >Belleza</a
-    >
-  </li>
-  <li class="nav-item m-2">
-    <a
-      class="nav-link btn btn-outline-success btn-lg p-4"
-      role="button"
-      href="#"
-      >Hogar</a
-    >
-  </li>
+  <li class="nav-item m-2"><a class="nav-link btn btn-outline-success btn-lg p-4" role="button" href="#">Alimentación</a></li>
+  <li class="nav-item m-2"><a class="nav-link btn btn-outline-success btn-lg p-4" role="button" href="#">Dietética</a></li>
+  <li class="nav-item m-2"><a class="nav-link btn btn-outline-success btn-lg p-4" role="button" href="#">Belleza</a></li>
+  <li class="nav-item m-2"><a class="nav-link btn btn-outline-success btn-lg p-4" role="button" href="#">Hogar</a></li>
 </ul>
 
 <!--

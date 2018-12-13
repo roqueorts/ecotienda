@@ -4,16 +4,7 @@
     <div id="accordion">
       <div class="card">
         <div class="card-header">
-          <h5>
-            <a
-              href="#collapse1"
-              class="text-success"
-              data-parent="#accordion"
-              data-toggle="collapse"
-            >
-              Alimentación
-            </a>
-          </h5>
+          <h5><a href="#collapse1" class="text-success" data-parent="#accordion" data-toggle="collapse"> Alimentación </a></h5>
         </div>
 
         <div id="collapse1" class="collapse">
@@ -30,16 +21,7 @@
 
       <div class="card">
         <div class="card-header">
-          <h5>
-            <a
-              href="#collapse2"
-              data-parent="#accordion"
-              data-toggle="collapse"
-              class="text-success"
-            >
-              Dietética
-            </a>
-          </h5>
+          <h5><a href="#collapse2" data-parent="#accordion" data-toggle="collapse" class="text-success"> Dietética </a></h5>
         </div>
 
         <div id="collapse2" class="collapse">
@@ -56,16 +38,7 @@
 
       <div class="card">
         <div class="card-header">
-          <h5>
-            <a
-              href="#collapse3"
-              data-parent="#accordion"
-              data-toggle="collapse"
-              class="text-success"
-            >
-              Belleza
-            </a>
-          </h5>
+          <h5><a href="#collapse3" data-parent="#accordion" data-toggle="collapse" class="text-success"> Belleza </a></h5>
         </div>
 
         <div id="collapse3" class="collapse">
@@ -82,11 +55,7 @@
     </div>
     <!-- FIN ACORDEON -->
   </div>
-  <div
-    id="productsView"
-    class="col-sm-7 col-md-8 col-lg-9"
-    style="border:1px solid #333"
-  >
+  <div id="productsView" class="col-sm-7 col-md-8 col-lg-9" style="border:1px solid #333">
     <!--
       <div id="cereals" class="card-columns">
         <div class="card" id="x" *ngFor="let heroe of heroes; let i = index">
@@ -124,51 +93,32 @@
 
     <section id="cereals" class="my-4 text-center">
       <div class="container">
+        <!-- (productSeleccionado)="verHeroe($event)" -->
         <div class="row">
-          <div
-            class="card col-lg-3 col-md-6 p-1 border-0"
-            *ngFor="let product of products; let i = index"
-          >
-            <div class="card-body border border-grey rounded">
-              <!--
-                <img
-                  [src]="assets/img/cereales2.jpg"
-                  alt=""
-                  class="img-fluid rounded-circle w-100 mb-3"
-                />
-              -->{{ product.name }}
-              <h3>Muesli</h3>
-              <h5 class="text-muted">Lead Writer</h5>
-              <hr />
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-                commodi nostrum, ab libero voluptas officia.
-              </p>
-              <button
-                (click)="verProduct(i)"
-                type="button"
-                class="btn  btn-outline-primary btn-block"
-              >
-                Ver más
-              </button>
-              <div class="d-flex justify-content-center">
-                <div class="p-4">
-                  <a href="http://facebook.com">
-                    <i class="fab fa-facebook"></i>
-                  </a>
-                </div>
-                <div class="p-4">
-                  <a href="http://twitter.com">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                </div>
-                <div class="p-4">
-                  <a href="http://instagram.com">
-                    <i class="fab fa-instagram"></i>
-                  </a>
+          <!-- <app-product-tarjeta [product]="product" [indice]="product.idx" *ngFor="let product of products"></app-product-tarjeta> -->
+          <div class="card animated fadeIn fast col-lg-3 col-md-6 p-1 border-0" *ngFor="let product of products; let i = index">
+            <app-product-tarjeta [product]="product" [indice]="i"></app-product-tarjeta>
+            <!--
+              <div class="card-body border border-grey rounded">
+                <img [src]="product.img" alt="" class="img-fluid rounded-circle w-100 mb-3" />
+
+                {{ product.nombre }}
+                <hr />
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed commodi nostrum, ab libero voluptas officia.</p>
+                <button (click)="verProduct(i)" type="button" class="btn  btn-outline-primary btn-block">Ver más</button>
+                <div class="d-flex justify-content-center">
+                  <div class="p-4">
+                    <a href="http://facebook.com"> <i class="fab fa-facebook"></i> </a>
+                  </div>
+                  <div class="p-4">
+                    <a href="http://twitter.com"> <i class="fab fa-twitter"></i> </a>
+                  </div>
+                  <div class="p-4">
+                    <a href="http://instagram.com"> <i class="fab fa-instagram"></i> </a>
+                  </div>
                 </div>
               </div>
-            </div>
+            -->
           </div>
         </div>
       </div>
