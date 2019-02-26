@@ -1,21 +1,28 @@
 <!-- NAV BAR -->
 <nav class="navbar navbar-expand-md bg-light navbar-light px-0 mx-2" id="main-nav">
-  <a [routerLink]="['home']" class="navbar-brand text-success">Ecotienda</a>
-  <button class="navbar-toggler border-success mb-1" data-toggle="collapse" data-target="#navbarCollapse"><span class="navbar-toggler-icon"></span></button>
+  <a [routerLink]="['home']" class="navbar-brand text-success">Ecotienda</a> <button class="navbar-toggler border-success mb-1" data-toggle="collapse" data-target="#navbarCollapse"><span class="navbar-toggler-icon"></span></button>
   <div class="input-group">
     <input class="form-control  border-success" type="text" placeholder="Buscar productos" (keyup.enter)="buscarProducto(buscarTexto.value)" #buscarTexto />
     <div class="input-group-append"><button class="btn btn-outline-success" (click)="buscarProducto(buscarTexto.value)" type="button">Buscar</button></div>
   </div>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item" routerLinkActive="active"><a class="nav-link text-success" [routerLink]="['register']">Registrarse</a></li>
+      <li *ngIf="!auth.isAuthenticated() && logueado === null" class="nav-item" routerLinkActive="active"><a class="nav-link text-success" [routerLink]="['register']">Registro</a></li>
       <li class="nav-item"><a class="nav-link text-success" href="#contacto">Contacto</a></li>
-      <li class="nav-item">
-        <a class="nav-link btn d-inline-block text-success" href="#"><i class="fas fa-user"></i> Mi cuenta </a>
+      <li class="nav-item" *ngIf="!auth.isAuthenticated() && logueado === null">
+        <!-- <a class="nav-link btn d-inline-block text-success" href="#"><i class="fas fa-user"></i> Mi cuenta </a> -->
+        <a (click)="login()" class="nav-link btn d-inline-block text-success"><i class="fas fa-user"></i> Login</a>
       </li>
 
-      <li class="nav-item">
+      <li *ngIf="auth.isAuthenticated() || logueado === 'true'" class="nav-item">
         <a class="nav-link  text-success btn d-inline-block" href="#"> <i class="fas fa-shopping-cart"></i> Mi carrito </a>
+      </li>
+      <li *ngIf="auth.isAuthenticated() || logueado === 'true'" class="nav-item">
+        <a [routerLink]="['account']" class="text-success btn d-inline-block"><i class="fas fa-user"></i> Mi cuenta</a>
+      </li>
+      <li class="nav-item" *ngIf="auth.isAuthenticated() || logueado === 'true'">
+        <!-- <a class="nav-link btn d-inline-block text-success" href="#"><i class="fas fa-user"></i> Mi cuenta </a> -->
+        <a (click)="salir()" class="nav-link btn d-inline-block text-success"><i class="fas fa-sign-out-alt"></i> Salir</a>
       </li>
     </ul>
   </div>

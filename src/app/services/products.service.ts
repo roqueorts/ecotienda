@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map } from 'rxjs/operators'; // Para filtrar el resultado
 
 @Injectable()
 export class ProductsService {
-  constructor(private http: HttpClient) {}
+  private headers;
+  private productsCarrrito: Product[];
+  constructor(private http: HttpClient) {
+    this.headers = new HttpHeaders({ Authentication: 'ncniu43fj34$%mdik3' });
+    this.cargarStorage();
+  }
   private products: Product[] = [
     {
       nombre: 'Muesli',
@@ -55,9 +61,6 @@ export class ProductsService {
       casa: 'Marvel'
     }
   ];
-  // constructor() {
-  //   // console.log('Servicio listo para usar!');
-  // }
 
   /**
    * getProducts
@@ -66,10 +69,15 @@ export class ProductsService {
     return this.products;
   }
 
-  // public getProducts(endpoint: String) {
-  //   // return this.products;
-  //   return this.http.get('http://localhost:8080/product');
-  // }
+  /**
+   * getProducts from BACKEND
+   */
+  public getProducts(endpoint: String) {
+    // return this.products;
+    return this.http.get('http://localhost:8080/product', this.headers);
+    // Ejemplo de uso de map, para filtrar
+    // this.http.get('http://localhost:8080/product', this.headers).pipe( map ( data => data['artistas']));
+  }
 
   public getProduct(idx: string): string {
     return this.products[idx];
@@ -92,6 +100,23 @@ export class ProductsService {
       }
     }
     return productsArr;
+  }
+
+  /** Agregar producto al carrito */
+  public setProduct(idx: string) {
+    this.productsCarrrito.push(this.products[idx]);
+    // guardar en localStorage
+    this.guardarStorage();
+  }
+  public guardarStorage() {
+    localStorage.setItem('productsCarrrito', JSON.stringify(this.productsCarrrito));
+  }
+  public cargarStorage() {
+    if (localStorage.getItem('productsCarrrito')) {
+      this.productsCarrrito = JSON.parse(localStorage.getItem('productsCarrrito'));
+    } else {
+      this.productsCarrrito = [];
+    }
   }
 }
 
