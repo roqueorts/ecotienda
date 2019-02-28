@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
-import { log } from 'util';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-register',
@@ -16,11 +16,11 @@ export class RegisterComponent implements OnInit {
       apellido: 'orts'
     },
     correo: 'roqueorts@gmail.com'
-    //pasatiempos: ['correr', 'bailar', 'dormir']
+    // pasatiempos: ['correr', 'bailar', 'dormir']
   };
 
   constructor() {
-    console.log(this.usuario);
+    // console.log(this.usuario);
 
     this.forma = new FormGroup({
       nombreCompleto: new FormGroup({
@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
       }),
       correo: new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]),
       pasatiempos: new FormArray([new FormControl('correr', Validators.required)]),
+      username: new FormControl('', Validators.required, this.existeUsuario.bind(this)),
       password1: new FormControl('', Validators.required),
       password2: new FormControl()
     });
@@ -36,6 +37,9 @@ export class RegisterComponent implements OnInit {
     // this.forma.setValue(this.usuario);
     // this.forma.controls['password2'].setValidators([Validators.required, this.noIgual2.bind(this)]); otra forma
     this.forma.controls['password2'].setValidators([Validators.required, this.noIgual]);
+    // this.forma.valueChanges.subscribe(data => console.log(data)); // valueChanges devuelve un observador al que me puedo subscribir.
+    this.forma.controls['username'].valueChanges.subscribe(data => console.log(data));
+    this.forma.controls['username'].statusChanges.subscribe(data => console.log(data));
   }
 
   ngOnInit() {}
@@ -62,7 +66,7 @@ export class RegisterComponent implements OnInit {
   }
 
   noIgual2(control: FormControl): { [s: string]: boolean } {
-    console.log(this);
+    // console.log(this);
 
     if (control.value !== this.forma.controls['password1'].value) {
       return {
@@ -73,7 +77,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  noIgual = (control: FormControl) => {
+  noIgual = (control: FormControl): { [s: string]: boolean } => {
     if (control.value !== this.forma.controls['password1'].value) {
       return {
         noiguales: true
@@ -83,4 +87,22 @@ export class RegisterComponent implements OnInit {
     }
     // tslint:disable-next-line:semicolon
   };
+
+  existeUsuario(control: FormControl) {
+    const obs = new Observable(observer => {
+      setTimeout(() => {
+        if (control.value === 'strider') {
+          observer.next({ existe: true });
+          observer.complete();
+          return observer;
+        } else {
+          observer.next(null);
+          observer.complete();
+          return observer;
+        }
+      }, 1000);
+    });
+
+    return obs;
+  }
 }

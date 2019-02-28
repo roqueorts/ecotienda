@@ -38,6 +38,13 @@
   </div>
 
   <div class="form-group row">
+    <label class="col-2 col-form-label">Usuario</label>
+    <div class="col-md-8">
+      <input class="form-control" type="text" placeholder="usuario" formControlName="username" />
+    </div>
+  </div>
+
+  <div class="form-group row">
     <label class="col-2 col-form-label">Password</label>
     <div class="col-md-8">
       <input class="form-control" type="password" placeholder="password" formControlName="password1" />
@@ -60,4 +67,7 @@
     </div>
   </div>
   {{ forma.valid }}
+  <br />
+  {{ forma.status }}
+  <div *ngIf="forma.valid">Holaaa</div>
 </form>
