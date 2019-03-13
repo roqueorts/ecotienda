@@ -10,10 +10,7 @@ export class HomeComponent implements OnInit {
   products: Product[] = [];
 
   // Se ejecuta antes de renderizar
-  constructor(
-    private _productsService: ProductsService,
-    private router: Router
-  ) {}
+  constructor(private _productsService: ProductsService, private router: Router) {}
 
   // Se ejecuta cuando la página está ya renderizada
   ngOnInit() {

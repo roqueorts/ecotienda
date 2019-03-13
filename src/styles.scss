@@ -64,6 +64,19 @@ body {
 }
 
 /* You can add global styles to this file, and also import other style files */
+.main-container {
+  margin-top: 40px;
+  margin-bottom: 150px;
+}
+
+.puntero {
+  cursor: pointer;
+}
+
+.w170 {
+  width: 170px;
+}
+
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -72,8 +85,8 @@ body {
 }
 
 .fast {
-  -webkit-animation-duration: 0.4s;
-  animation-duration: 0.4s;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }

@@ -7,6 +7,7 @@
   </div>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav ml-auto">
+      <li class="nav-item"><a class="nav-link text-success" [routerLink]="['admin-products']">Admin</a></li>
       <li *ngIf="!auth.isAuthenticated() && logueado === null" class="nav-item" routerLinkActive="active"><a class="nav-link text-success" [routerLink]="['register']">Registro</a></li>
       <li class="nav-item"><a class="nav-link text-success" href="#contacto">Contacto</a></li>
       <li class="nav-item" *ngIf="!auth.isAuthenticated() && logueado === null">

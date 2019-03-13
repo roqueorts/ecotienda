@@ -10,8 +10,12 @@ import { RegisterComponent } from './components/register/register.component';
 import { SearchComponent } from './components/search/search.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AccountComponent } from './components/account/account.component';
+import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
+import { EditProductComponent } from './components/admin/admin-products/edit-product.component';
 
 const APP_ROUTES: Routes = [
+  { path: 'admin-products', component: AdminProductsComponent },
+  { path: 'edit-product/:id', component: EditProductComponent },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'register', component: RegisterComponent },

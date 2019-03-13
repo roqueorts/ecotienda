@@ -29,9 +29,12 @@ import { ProductTarjetaComponent } from './components/product-tarjeta/product-ta
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AccountComponent } from './components/account/account.component';
+import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
+import { EditProductComponent } from './components/admin/admin-products/edit-product.component';
+import { KeysPipe } from './pipes/keys.pipe';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, HomeComponent, AboutComponent, FooterComponent, ProductsComponent, ProductComponent, RegisterComponent, SearchComponent, ProductTarjetaComponent, LoadingComponent, AccountComponent],
+  declarations: [AppComponent, NavbarComponent, HomeComponent, AboutComponent, FooterComponent, ProductsComponent, ProductComponent, RegisterComponent, SearchComponent, ProductTarjetaComponent, LoadingComponent, AccountComponent, AdminProductsComponent, EditProductComponent, KeysPipe],
   imports: [BrowserModule, APP_ROUTING, HttpClientModule, FormsModule, ReactiveFormsModule],
   providers: [ProductsService, { provide: LOCALE_ID, useValue: 'es' }, AuthService, AuthGuardService],
   bootstrap: [AppComponent]
