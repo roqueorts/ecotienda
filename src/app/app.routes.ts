@@ -12,6 +12,8 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { AccountComponent } from './components/account/account.component';
 
 const APP_ROUTES: Routes = [
+  { path: 'admin-products', component: AdminProductsComponent },
+  { path: 'edit-product/:id', component: EditProductComponent },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'register', component: RegisterComponent },
