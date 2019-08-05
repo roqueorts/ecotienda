@@ -11,6 +11,7 @@ import { timeout } from 'q';
 })
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
+  clientes: any[] = [];
   endpoint: String;
   loading: boolean;
   error: boolean;
@@ -37,6 +38,10 @@ export class ProductsComponent implements OnInit {
 
     setTimeout(() => {
       this.products = this._productsService.getProductsOld();
+      this._productsService.getClients('').subscribe((result: any[]) => {
+        this.clientes = result;
+        console.log(this.clientes);
+      });
       this.loading = false;
     }, 2000);
 

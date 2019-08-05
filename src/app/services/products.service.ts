@@ -79,6 +79,16 @@ export class ProductsService {
     // this.http.get('http://localhost:8080/product', this.headers).pipe( map ( data => data['artistas']));
   }
 
+  /**
+   * getClients from BACKEND
+   */
+  public getClients(endpoint: String): Observable<any> {
+    // return this.products;
+    return this.http.get<any[]>('http://localhost:8080/api/clientes');
+    // Ejemplo de uso de map, para filtrar
+    // this.http.get('http://localhost:8080/product', this.headers).pipe( map ( data => data['artistas']));
+  }
+
   public getProduct(idx: string): string {
     return this.products[idx];
   }
