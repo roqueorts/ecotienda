@@ -14,7 +14,7 @@ export class AdminProductsComponent implements OnInit {
   loading = true;
 
   constructor(private productosService: ProductsService, private router: Router, private route: ActivatedRoute) {
-    this.productosService.getProductos().subscribe(productos => {
+    this.productosService.getProducts('').subscribe(productos => {
       // console.log(productos);
       setTimeout(() => {
         this.loading = false;
@@ -25,7 +25,7 @@ export class AdminProductsComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   delete(key: string) {
     this.productosService.borrarProducto(key).subscribe(result => {

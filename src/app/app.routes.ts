@@ -14,6 +14,7 @@ import { AdminProductsComponent } from './components/admin/admin-products/admin-
 import { EditProductComponent } from './components/admin/admin-products/edit-product.component';
 import { MaterialDesignComponent } from './components/material-design/material-design.component';
 
+
 const APP_ROUTES: Routes = [
   // { path: 'material-design', component: MaterialDesignComponent },
   { path: 'admin-products', component: AdminProductsComponent },

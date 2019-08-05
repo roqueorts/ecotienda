@@ -92,4 +92,4 @@ import { NgDropFilesDirective } from './directives/ng-drop-files.directive';
   providers: [ProductsService, { provide: LOCALE_ID, useValue: 'es' }, AuthService, AuthGuardService, ChatService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
