@@ -9,13 +9,10 @@ import { ProductsService } from '../../services/products.service';
 })
 export class ProductComponent implements OnInit {
   product: any = {};
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private productsService: ProductsService
-  ) {
+  constructor(private activatedRoute: ActivatedRoute, private productsService: ProductsService) {
     this.activatedRoute.params.subscribe(params => {
       // console.log(params['id']);
-      this.product = productsService.getProduct(params['id']);
+      this.product = this.productsService.getProduct(params['id']);
       console.log(this.product.nombre);
     });
   }

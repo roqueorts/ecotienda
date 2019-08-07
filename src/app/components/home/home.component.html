@@ -1,4 +1,19 @@
+<!-- MATERIAL -->
+<div><router-outlet></router-outlet></div>
+<nav>
+  <a [routerLink]="['material-design']">Material Design</a>
+</nav>
+
 <!-- PRODUCTS -->
+<div class="chat-window" *ngIf="cs.usuario.uid">
+  <app-chat></app-chat>
+</div>
+<div class="col-md-12 text-center" *ngIf="cs.usuario.uid">
+  <button type="button" class="btn btn-outline-danger" (click)="cs.logout()">
+    salir
+  </button>
+</div>
+<app-login *ngIf="!cs.usuario.uid"></app-login>
 <app-products></app-products>
 
 <!-- BOXES -->
@@ -9,10 +24,7 @@
         <div class="card text-center border-success mb-resp">
           <div class="card-body">
             <h3 class="text-success">Anuncio</h3>
-            <p class="text-muted">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet,
-              deserunt.
-            </p>
+            <p class="text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, deserunt.</p>
           </div>
         </div>
       </div>
@@ -20,10 +32,7 @@
         <div class="card text-center bg-success text-white mb-resp">
           <div class="card-body">
             <h3>Anuncio</h3>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet,
-              deserunt.
-            </p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, deserunt.</p>
           </div>
         </div>
       </div>
@@ -31,10 +40,7 @@
         <div class="card text-center border-success mb-resp">
           <div class="card-body">
             <h3 class="text-success">Anuncio</h3>
-            <p class="text-muted">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet,
-              deserunt.
-            </p>
+            <p class="text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, deserunt.</p>
           </div>
         </div>
       </div>
@@ -42,13 +48,12 @@
         <div class="card text-center bg-success text-white">
           <div class="card-body">
             <h3>Anuncio</h3>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet,
-              deserunt.
-            </p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, deserunt.</p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+<app-about></app-about>
+<app-footer></app-footer>

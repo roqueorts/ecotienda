@@ -19,17 +19,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": [
-              "node_modules/bootstrap/scss/bootstrap.scss",
-              "src/styles.scss"
-            ],
-            "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/popper.js/dist/umd/popper.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/ekko-lightbox/dist/ekko-lightbox.min.js",
-              "src/assets/js/events.js"
-            ]
+            "styles": ["src/styles.scss"],
+            "scripts": ["src/assets/js/events.js"]
           },
           "configurations": {
             "production": {
