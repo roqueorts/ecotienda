@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from '../../services/chat.service';
 import { CompileMetadataResolver } from '@angular/compiler';
-import { endTimeRange } from '@angular/core/src/profile/wtf_impl';
+// import { endTimeRange } from '@angular/core/src/profile/wtf_impl';
 import { endianness } from 'os';
 @Component({
   selector: 'app-chat',
