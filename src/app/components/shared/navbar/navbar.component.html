@@ -1,6 +1,10 @@
 <!-- NAV BAR -->
 <nav class="navbar navbar-expand-md bg-light navbar-light px-0 mx-2" id="main-nav">
-  <a [routerLink]="['home']" class="navbar-brand text-success">Ecotienda</a> <button class="navbar-toggler border-success mb-1" data-toggle="collapse" data-target="#navbarCollapse"><span class="navbar-toggler-icon"></span></button>
+  <a [routerLink]="['home']" class="navbar-brand text-success">Ecotienda</a>
+  <!-- <a [routerLink]="['/']">
+    <h1>My Store</h1>
+  </a>-->
+  <button class="navbar-toggler border-success mb-1" data-toggle="collapse" data-target="#navbarCollapse"><span class="navbar-toggler-icon"></span></button>
   <div class="input-group">
     <input class="form-control  border-success" type="text" placeholder="Buscar productos" (keyup.enter)="buscarProducto(buscarTexto.value)" #buscarTexto />
     <div class="input-group-append"><button class="btn btn-outline-success" (click)="buscarProducto(buscarTexto.value)" type="button">Buscar</button></div>
@@ -17,6 +21,7 @@
 
       <li *ngIf="auth.isAuthenticated() || logueado === 'true'" class="nav-item">
         <a class="nav-link  text-success btn d-inline-block" href="#"> <i class="fas fa-shopping-cart"></i> Mi carrito </a>
+        <a [routerLink]="['/cart']" class="button fancy-button"><i class="material-icons">shopping_cart</i>Checkout</a>
       </li>
       <li *ngIf="auth.isAuthenticated() || logueado === 'true'" class="nav-item">
         <a [routerLink]="['account']" class="text-success btn d-inline-block"><i class="fas fa-user"></i> Mi cuenta</a>

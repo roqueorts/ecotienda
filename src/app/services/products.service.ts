@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators'; // Para filtrar el resultado
+import { catchError, map, tap } from 'rxjs/operators'; // Para filtrar el resultado
+import { of } from 'rxjs';
 import { Producto } from '../interfaces/producto.interface';
 import { Observable } from 'rxjs/internal/Observable';
 import { Key } from 'protractor';
@@ -189,7 +190,8 @@ export class ProductsService {
         //   }
         // }
         return data;
-      })
+      }), tap(_ => console.log('fetched products')),
+      catchError(this.handleError<Product[]>('getProducts', []))
     );
   }
   borrarProducto(key$: string): any {
@@ -201,6 +203,25 @@ export class ProductsService {
     );
   }
 
+  /**
+   * Handle Http operation that failed.
+   * Let the app continue.
+   * @param operation - name of the operation that failed
+   * @param result - optional value to return as the observable result
+   */
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // TODO: better job of transforming error for user consumption
+      console.error(`${operation} failed: ${error.message}`);
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
 }
 
 export interface Product {
@@ -211,3 +232,4 @@ export interface Product {
   casa: string;
   idx?: number;
 }
+
