@@ -35,7 +35,8 @@ const APP_ROUTES: Routes = [
   // { path: ..., component: ..., data: { message: 'Custom' }
 ];
 
-export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);
+export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES); // En la documentacion de angular, lo hace de otra forma,
+// crea una clase y la exporta. export class AppRoutingModule {}
 
 // @NgModule({
 //   imports: [RouterModule.forChild(ROUTES)],
